@@ -43,9 +43,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatSelectFilterModule } from 'mat-select-filter';
-import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   exports: [
@@ -93,10 +91,8 @@ import { ChartsModule } from 'ng2-charts';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    PdfViewerModule,
     MaterialFileInputModule,
     MatSelectFilterModule,
-    ChartsModule
   ],
 })
 export class DemoMaterialModule {}
