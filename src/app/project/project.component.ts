@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +14,7 @@ export class ProjectComponent implements OnInit {
 
   
   displayedColumns: string[] = ['name', 'date_init', 'date_finish', 'value_project', 'risk_project', 'opcao'];
-  cadastros: MatTableDataSource<any>;
+  projects: MatTableDataSource<any>;
 
   userform: FormGroup;
   isLoading = true;
@@ -22,23 +23,22 @@ export class ProjectComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   submitted: boolean;
-  controlDelete = false;
-  cadastroKey: any;
-  controlSubmit: boolean = false;
-
-  municipios: any[] = [];
-  filteredListMunicipios: [];
-  dataFormItem: any;
-
-  filteredListItems: any[];
 
 
-  filterInputRow = {};
-  totalPages: any;
-
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    this.userform = this.fb.group({
+      'name': new FormControl('', Validators.required),
+      'date_init': new FormControl('', Validators.required),
+      'date_finish': new FormControl('', Validators.required),
+      'value_project': new FormControl('', Validators.required),
+      'risk_project': new FormControl('', Validators.required),
+      'participants': this.fb.array([]),
+    });
   }
 
 
@@ -48,9 +48,9 @@ export class ProjectComponent implements OnInit {
   }
 
   openDialog() {
-
+    const dialogRef = this.dialog.open(this.customTemplate);
   }
-  
+
   getCurrent(event){
 
   }
