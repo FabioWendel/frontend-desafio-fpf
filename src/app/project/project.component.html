@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <mat-form-field>
+          <mat-label>Procurar</mat-label>
+          <input matInput [disabled]="isLoading" (keyup)="applyFilter($event)" placeholder="Procurar..." #input>
+        </mat-form-field>
+        <button mat-mini-fab color="warn" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add">
+          <mat-icon>person_add_alt_1</mat-icon>
+        </button>
+      </div>
+  
+      <div class="example-container">
+  
+        <div class="example-loading-shade" *ngIf="isLoading">
+          <mat-spinner *ngIf="isLoading" [diameter]="35" color="warn"></mat-spinner>
+        </div>
+  
+        <div class="example-table-container mat-elevation-z8">
+  
+          <table mat-table [dataSource]="cadastros" matSort>
+  
+            <ng-container matColumnDef="termo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Termo </th>
+              <td mat-cell *matCellDef="let row"> {{row.termo}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="municipio">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Município </th>
+              <td mat-cell *matCellDef="let row"> {{row.municipio}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="local">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Local </th>
+              <td mat-cell *matCellDef="let row"> {{row.local}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+              <td mat-cell *matCellDef="let row"> {{row.data | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="opcao">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Opções </th>
+              <td mat-cell *matCellDef="let row let i = index">
+                <button mat-mini-fab color="warn" (click)="openDialogEdit(cadastros.data[i])" class="my-fab">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">Nenhum dado corresponde ao filtro "{{input.value}}"</td>
+            </tr>
+          </table>
+          <!-- <mat-paginator [length]="totalPages" [pageSize]="5" (page)="getCurrent($event)"></mat-paginator> -->
+        </div>
+  
+      </div>
+    </div>
+  </div>

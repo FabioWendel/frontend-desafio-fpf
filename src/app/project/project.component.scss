@@ -1,0 +1,252 @@
+::ng-deep  .main-content {
+    margin: 3%;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .button-cadastro-flutuante {
+    flex-direction: row-reverse;
+    z-index: 15000;
+    top: 50px; /* altura que vai parar antes do topo */
+    position: sticky;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td,
+  th {
+    width: 25%;
+  }
+  
+  .custom-icon-add-item {
+    // width: 35px;
+    // height: 35px;
+    background-color: #999999;
+    line-height: 20px;
+    font: icon;
+  
+    &::ng-deep .mat-button-wrapper {
+      line-height: 25px;
+      padding: 0;
+  
+      .mat-icon {
+        font-size: 20px;
+        padding-right: 0px;
+        padding-top: 3px;
+      }
+    }
+  }
+  
+  .custom-icon-remove {
+    width: 35px;
+    height: 35px;
+    line-height: 20px;
+    font-size: 20px;
+    margin-bottom: 30px !important;
+  
+    &::ng-deep .mat-button-wrapper {
+      line-height: 25px;
+      padding: 0;
+  
+      .mat-icon {
+        font-size: 20px;
+        padding-right: 0px;
+        padding-top: 3px;
+      }
+    }
+  }
+  .custom-icon-add {
+    width: 35px;
+    height: 35px;
+    line-height: 20px;
+    font-size: 20px;
+  
+    &::ng-deep .mat-button-wrapper {
+      line-height: 25px;
+      padding: 0;
+  
+      .mat-icon {
+        font-size: 20px;
+        padding-right: 0px;
+        padding-top: 3px;
+      }
+    }
+  }
+  .my-fab {
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    font-size: 20px;
+  
+    &::ng-deep .mat-button-wrapper {
+      line-height: 20px;
+      padding: 0;
+  
+      .mat-icon {
+        font-size: 17px;
+        padding-right: 0px;
+        padding-top: 4px;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 415px) {
+    .img-cadastro-moble {
+      width: 100% !important;
+    }
+  }
+  /* Structure */
+  .example-container {
+    position: relative;
+    min-height: 200px;
+  }
+  
+  .example-table-container {
+    position: relative;
+    // max-height: 500px;
+    overflow: auto;
+  }
+  
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
+  
+  //VVVVVVVVV Responsive CSS Mobile Fabio Wendel VVVVVVVVVV
+  
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px !important;
+  }
+  
+  .mat-row {
+    &:hover {
+      background-color: #575757;
+    }
+    a {
+      color: #3e75ff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .mat-elevation-z8 {
+      background: transparent;
+      box-shadow: none;
+    }
+  
+    .mat-header-row {
+      display: none;
+    }
+  
+    tbody {
+      display: block;
+      width: 100%;
+    }
+  
+    .mat-table {
+      background: transparent;
+      * {
+        box-sizing: border-box;
+      }
+  
+      .mat-row {
+        display: block;
+        overflow: hidden;
+        height: auto;
+        position: relative;
+        clear: both;
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        border-radius: 3px;
+        + .mat-row {
+          margin-top: 24px;
+        }
+      }
+  
+      .mat-cell {
+        display: block;
+        width: 100%;
+        padding: 0 16px;
+        margin: 16px 0;
+        border: 0 none;
+        &:first-child {
+          padding: 0 48px 0 16px;
+          a {
+            font-size: 20px;
+            // font-weight: 400;
+            color: inherit;
+          }
+          &:before {
+            display: none;
+          }
+        }
+        &.m-card-sub-title {
+          margin-top: -8px;
+          padding: 0 48px 0 16px;
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+  
+      .has_label_on_mobile {
+        &:before {
+          content: attr(data-label);
+          display: inline;
+          font-weight: normal;
+        }
+      }
+  
+      .mat-column-star {
+        width: auto;
+        padding: 8px 0 0 !important;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  
+    .mat-paginator {
+      margin-top: 24px;
+    }
+  }
+  
