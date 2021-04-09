@@ -5,39 +5,44 @@
           <mat-label>Procurar</mat-label>
           <input matInput [disabled]="isLoading" (keyup)="applyFilter($event)" placeholder="Procurar..." #input>
         </mat-form-field>
-        <button mat-mini-fab color="warn" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add">
-          <mat-icon>person_add_alt_1</mat-icon>
+        <button mat-mini-fab color="primary" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add">
+          <mat-icon>addchart</mat-icon>
         </button>
       </div>
   
       <div class="example-container">
   
         <div class="example-loading-shade" *ngIf="isLoading">
-          <mat-spinner *ngIf="isLoading" [diameter]="35" color="warn"></mat-spinner>
+          <mat-spinner *ngIf="isLoading" [diameter]="35" color="primary"></mat-spinner>
         </div>
   
         <div class="example-table-container mat-elevation-z8">
   
           <table mat-table [dataSource]="cadastros" matSort>
   
-            <ng-container matColumnDef="termo">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Termo </th>
-              <td mat-cell *matCellDef="let row"> {{row.termo}} </td>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+              <td mat-cell *matCellDef="let row"> {{row.name}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="municipio">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Município </th>
-              <td mat-cell *matCellDef="let row"> {{row.municipio}} </td>
+            <ng-container matColumnDef="date_init">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Data inicío </th>
+              <td mat-cell *matCellDef="let row"> {{row.date_init | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="local">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Local </th>
-              <td mat-cell *matCellDef="let row"> {{row.local}} </td>
+            <ng-container matColumnDef="date_finish">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Data final </th>
+              <td mat-cell *matCellDef="let row"> {{row.date_finish | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="data">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
-              <td mat-cell *matCellDef="let row"> {{row.data | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
+            <ng-container matColumnDef="value_project">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor do Projeto </th>
+              <td mat-cell *matCellDef="let row"> {{row.value_project}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="risk_project">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Risco do Investimento </th>
+                <td mat-cell *matCellDef="let row"> {{row.risk_project}} </td>
             </ng-container>
   
   
@@ -57,7 +62,7 @@
               <td class="mat-cell" colspan="4">Nenhum dado corresponde ao filtro "{{input.value}}"</td>
             </tr>
           </table>
-          <!-- <mat-paginator [length]="totalPages" [pageSize]="5" (page)="getCurrent($event)"></mat-paginator> -->
+          <mat-paginator *ngIf="!isLoading" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [length]="totalPages" [pageSize]="5" (page)="getCurrent($event)"></mat-paginator>
         </div>
   
       </div>

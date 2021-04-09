@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ProjectComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['termo', 'municipio', 'local', 'data', 'opcao'];
+  displayedColumns: string[] = ['name', 'date_init', 'date_finish', 'value_project', 'risk_project', 'opcao'];
   cadastros: MatTableDataSource<any>;
 
   userform: FormGroup;
@@ -48,6 +48,10 @@ export class ProjectComponent implements OnInit {
   }
 
   openDialog() {
+
+  }
+  
+  getCurrent(event){
 
   }
 
