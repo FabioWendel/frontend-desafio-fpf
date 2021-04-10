@@ -52,7 +52,7 @@ export class ProjectService {
       )
   }
 
-  deleteOrder(project: Project) {
+  deleteProject(project: Project) {
     return this.httpClient.delete<Project>( `${this.apiUrl}projects/${project.id}`, this.httpOptions)
       .pipe(
         retry(1),
