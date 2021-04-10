@@ -1,27 +1,25 @@
-# App
+# Desafio FPF Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+Angular 11.0
 
-## Development server
+## Rodar aplicação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para ter acesso ao projeto  pasta fazer um git clone, como fazer ? 
 
-## Code scaffolding
+Caso não tenha git abra o terminal no linux e cole:
+`sudo apt-get install git-all`
+Apos instalar abra o terminal no linux e cole o seguinte comando:
+`git clone https://github.com/FabioWendel/frontend-desafio-fpf.git`
+ 
+Caso esteja usando Windows baixe o git para usar o comando,  acesse o link:
+`https://git-scm.com/downloads`
+Apos instalar abra o git bash e cole o seguinte comando:
+`git clone https://github.com/FabioWendel/frontend-desafio-fpf.git`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Feito o passo a cima vamos abrir o repositorio com o seguinte comando linux/windows:
+`cd frontend-desafio-fpf`
 
-## Build
+Caso tudo certo até aqui vamos instalar as dependencias com o seguinte comando linux/windows:
+`npm install | npm i`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+E para finaliza execute  `ng serve | ng s` para inicializar um servidor de desenvolvimento. Navegue até `http://localhost:4200/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
