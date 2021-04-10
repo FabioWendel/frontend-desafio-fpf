@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
-  { path: 'project', component: ProjectComponent}
+  {
+    path: '',
+    redirectTo: 'project',
+    pathMatch: 'full',
+  },
+  { path: 'project', component: ProjectComponent},
 ];
 
 @NgModule({
