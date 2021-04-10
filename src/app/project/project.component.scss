@@ -1,3 +1,4 @@
+
 ::ng-deep  .main-content {
     margin: 3%;
 }
@@ -6,7 +7,12 @@
   .mat-progress-spinner circle, .mat-spinner circle {
     stroke:#075fcb;
   }
+
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #063d80;
+  }
 }
+
 
 table {
     width: 100%;
@@ -255,3 +261,132 @@ table {
       margin-top: 24px;
     }
   }
+
+
+
+  $price_bg: #0b4089;
+$rip_cut_size: 20px;
+$rip_border_size: $rip_cut_size / 4;
+
+.ticket3 {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 700px;
+	margin: 30px;
+	filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.15));
+
+	&__details {
+		flex: 3;
+		background-color: #d4d8dc;
+		min-height: 150px;
+		padding: 1rem;
+		border-radius: 5px 0 0 5px;
+
+		.ticket3__title {
+			margin-top: 0;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				margin: .7rem 0;
+			}
+		}
+	}
+
+	&__rip {
+		position: relative;
+		background-color: #d4d8dc;
+		background-image: linear-gradient(90deg, #d4d8dc 49%, $price_bg 50%);
+		margin: ($rip_cut_size / 2) 0;
+		width: $rip_cut_size;
+
+    .outer {
+      overflow: hidden;
+    }
+    .inner {
+      border: 1px solid #888;
+    }
+    .inner i {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #888;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    .inner .top {
+      margin-top: -20px;
+    }
+    .inner .bottom {
+      margin-top: -20px;
+      margin-bottom: -22px;
+    }
+    .inner .left {
+      float: left;
+      margin-left: -20px;
+    }
+    .inner .right {
+      float: right;
+      margin-right: -20px;
+    }
+    .content {
+      min-height: 80px;
+    }
+
+		&::before,
+		&::after {
+			position: absolute;
+			content: "";
+			width: $rip_cut_size;
+			height: $rip_cut_size;
+			border: $rip_border_size solid transparent;
+			border-top-color: #d4d8dc;
+			left: 50%;
+			transform: translateX(-50%) rotate(135deg);
+			border-radius: 50%;
+		}
+
+		&::before {
+			top: - ( $rip_cut_size + $rip_border_size - 11 );
+			border-top-color: $price_bg;
+			border-right-color: #d4d8dc;
+		}
+
+		&::after {
+			border-right-color: $price_bg;
+			border-top-color: #d4d8dc;
+			bottom: - ( $rip_cut_size + $rip_border_size - 11);
+			transform: translateX(-50%) rotate(-45deg);
+		}
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex: 1;
+		background-color: $price_bg;
+		min-height: 150px;
+		padding: 1rem;
+		border-radius: 0 5px 5px 0;
+		color: #d4d8dc;
+
+		.heading {
+			font-size: 1rem;
+			margin-bottom: .6rem;
+			color: #ffcdde;
+			margin-left: -5px;
+		}
+
+		.price {
+			font-size: 2rem;
+			font-weight: bold;
+			margin-left: -5px;
+		}
+	}
+}
