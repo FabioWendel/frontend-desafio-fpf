@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ProjectComponent implements OnInit {
 
-  
+
   displayedColumns: string[] = ['name', 'date_init', 'date_finish', 'value_project', 'risk_project', 'opcao'];
   projects: MatTableDataSource<any>;
 
@@ -48,7 +48,7 @@ export class ProjectComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(this.customTemplate);
+    const dialogRef = this.dialog.open(this.customTemplate, {width:'850px'});
   }
 
   getCurrent(event){

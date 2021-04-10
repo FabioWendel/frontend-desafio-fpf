@@ -5,7 +5,7 @@
                 <mat-label>Procurar</mat-label>
                 <input matInput [disabled]="isLoading" (keyup)="applyFilter($event)" placeholder="Procurar..." #input>
             </mat-form-field>
-            <button mat-mini-fab color="primary" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add">
+            <button mat-mini-fab color="primary" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add" style="background-color: #075fcb;">
                 <mat-icon>addchart</mat-icon>
             </button>
         </div>
@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header card-header-primary">
+                    <div class="card-header card-header-info" style="background-image: url(../../assets/img/navbar_.png); background-repeat: repeat-y;">
                         <h4 class="card-title">Cadastro do Projeto</h4>
                         <p class="card-category">Cadastrar informação do projeto</p>
                     </div>

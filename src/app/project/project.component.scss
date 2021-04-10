@@ -2,38 +2,44 @@
     margin: 3%;
 }
 
+::ng-deep{
+  .mat-progress-spinner circle, .mat-spinner circle {
+    stroke:#075fcb;
+  }
+}
+
 table {
     width: 100%;
   }
-  
+
   .button-cadastro-flutuante {
     flex-direction: row-reverse;
     z-index: 15000;
     top: 50px; /* altura que vai parar antes do topo */
     position: sticky;
   }
-  
+
   .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
-  
+
   td,
   th {
     width: 25%;
   }
-  
+
   .custom-icon-add-item {
     // width: 35px;
     // height: 35px;
     background-color: #999999;
     line-height: 20px;
     font: icon;
-  
+
     &::ng-deep .mat-button-wrapper {
       line-height: 25px;
       padding: 0;
-  
+
       .mat-icon {
         font-size: 20px;
         padding-right: 0px;
@@ -41,18 +47,18 @@ table {
       }
     }
   }
-  
+
   .custom-icon-remove {
     width: 35px;
     height: 35px;
     line-height: 20px;
     font-size: 20px;
     margin-bottom: 30px !important;
-  
+
     &::ng-deep .mat-button-wrapper {
       line-height: 25px;
       padding: 0;
-  
+
       .mat-icon {
         font-size: 20px;
         padding-right: 0px;
@@ -65,11 +71,11 @@ table {
     height: 35px;
     line-height: 20px;
     font-size: 20px;
-  
+
     &::ng-deep .mat-button-wrapper {
       line-height: 25px;
       padding: 0;
-  
+
       .mat-icon {
         font-size: 20px;
         padding-right: 0px;
@@ -82,11 +88,11 @@ table {
     height: 30px;
     line-height: 20px;
     font-size: 20px;
-  
+
     &::ng-deep .mat-button-wrapper {
       line-height: 20px;
       padding: 0;
-  
+
       .mat-icon {
         font-size: 17px;
         padding-right: 0px;
@@ -94,7 +100,7 @@ table {
       }
     }
   }
-  
+
   @media only screen and (max-width: 415px) {
     .img-cadastro-moble {
       width: 100% !important;
@@ -105,13 +111,13 @@ table {
     position: relative;
     min-height: 200px;
   }
-  
+
   .example-table-container {
     position: relative;
     // max-height: 500px;
     overflow: auto;
   }
-  
+
   .example-loading-shade {
     position: absolute;
     top: 0;
@@ -124,30 +130,30 @@ table {
     align-items: center;
     justify-content: center;
   }
-  
+
   .example-rate-limit-reached {
     color: #980000;
     max-width: 360px;
     text-align: center;
   }
-  
+
   /* Column Widths */
   .mat-column-number,
   .mat-column-state {
     max-width: 64px;
   }
-  
+
   .mat-column-created {
     max-width: 124px;
   }
-  
+
   //VVVVVVVVV Responsive CSS Mobile Fabio Wendel VVVVVVVVVV
-  
+
   td.mat-column-star {
     width: 20px;
     padding-right: 8px !important;
   }
-  
+
   .mat-row {
     &:hover {
       background-color: #575757;
@@ -160,33 +166,33 @@ table {
       }
     }
   }
-  
+
   .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
-  
+
   @media screen and (max-width: 960px) {
     .mat-elevation-z8 {
       background: transparent;
       box-shadow: none;
     }
-  
+
     .mat-header-row {
       display: none;
     }
-  
+
     tbody {
       display: block;
       width: 100%;
     }
-  
+
     .mat-table {
       background: transparent;
       * {
         box-sizing: border-box;
       }
-  
+
       .mat-row {
         display: block;
         overflow: hidden;
@@ -199,7 +205,7 @@ table {
           margin-top: 24px;
         }
       }
-  
+
       .mat-cell {
         display: block;
         width: 100%;
@@ -223,7 +229,7 @@ table {
           color: rgba(0, 0, 0, 0.54);
         }
       }
-  
+
       .has_label_on_mobile {
         &:before {
           content: attr(data-label);
@@ -231,7 +237,7 @@ table {
           font-weight: normal;
         }
       }
-  
+
       .mat-column-star {
         width: auto;
         padding: 8px 0 0 !important;
@@ -244,9 +250,8 @@ table {
         }
       }
     }
-  
+
     .mat-paginator {
       margin-top: 24px;
     }
   }
-  
