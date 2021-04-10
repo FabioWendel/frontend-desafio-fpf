@@ -1,198 +1,172 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="d-flex">
-            <mat-form-field>
-                <mat-label>Procurar</mat-label>
-                <input matInput [disabled]="isLoading" (keyup)="applyFilter($event)" placeholder="Procurar..." #input>
-            </mat-form-field>
-            <button mat-mini-fab color="primary" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add" style="background-color: #075fcb;">
-                <mat-icon>addchart</mat-icon>
-            </button>
-        </div>
-
-        <div class="example-container">
-
-            <div class="example-loading-shade" *ngIf="isLoading">
-                <mat-spinner *ngIf="isLoading" [diameter]="35" color="primary"></mat-spinner>
-            </div>
-
-            <div class="example-table-container mat-elevation-z8">
-
-                <table mat-table [dataSource]="projects" matSort>
-
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-                        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="date_init">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data inicío </th>
-                        <td mat-cell *matCellDef="let row"> {{row.date_init | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="date_finish">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data final </th>
-                        <td mat-cell *matCellDef="let row"> {{row.date_finish | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="value_project">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor do Projeto </th>
-                        <td mat-cell *matCellDef="let row"> {{row.value_project}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="risk_project">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Risco do Investimento </th>
-                        <td mat-cell *matCellDef="let row"> {{row.risk_project}} </td>
-                    </ng-container>
-
-
-                    <ng-container matColumnDef="opcao">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Opções </th>
-                        <td mat-cell *matCellDef="let row let i = index">
-                            <button mat-mini-fab color="warn" (click)="openDialogEdit(cadastros.data[i])"
-                                class="my-fab">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                        </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-                    <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="4">Nenhum dado corresponde ao filtro "{{input.value}}"</td>
-                    </tr>
-                </table>
-                <mat-paginator *ngIf="!isLoading" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-                    [length]="totalPages" [pageSize]="5" (page)="getCurrent($event)"></mat-paginator>
-            </div>
-
-        </div>
+  <div class="container-fluid">
+    <div class="d-flex">
+      <mat-form-field>
+        <mat-label>Procurar</mat-label>
+        <input matInput [disabled]="isLoading" (keyup)="applyFilter($event)" placeholder="Procurar..." #input>
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="openDialog()" class="ml-2 mt-3 custom-icon-add"
+        style="background-color: #075fcb;">
+        <mat-icon>addchart</mat-icon>
+      </button>
     </div>
+
+    <div class="example-container">
+
+      <div class="example-loading-shade" *ngIf="isLoading">
+        <mat-spinner *ngIf="isLoading" [diameter]="35" color="primary"></mat-spinner>
+      </div>
+
+      <div class="example-table-container mat-elevation-z8">
+
+        <table mat-table [dataSource]="projects" matSort>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="date_init">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data inicío </th>
+            <td mat-cell *matCellDef="let row"> {{row.date_init | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="date_finish">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data final </th>
+            <td mat-cell *matCellDef="let row"> {{row.date_finish | slice: 0:10 | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="value_project">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor do Projeto </th>
+            <td mat-cell *matCellDef="let row"> {{row.value_project}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="risk_project">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Risco do Investimento </th>
+            <td mat-cell *matCellDef="let row"> {{row.risk_project}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="opcao">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Opções </th>
+            <td mat-cell *matCellDef="let row let i = index">
+              <button mat-mini-fab color="warn" (click)="openDialogEdit(cadastros.data[i])" class="my-fab">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Nenhum dado corresponde ao filtro "{{input.value}}"</td>
+          </tr>
+        </table>
+        <mat-paginator *ngIf="!isLoading" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [length]="totalPages"
+          [pageSize]="5" (page)="getCurrent($event)"></mat-paginator>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
 
 
 <ng-template #myTemplate>
-    <mat-dialog-content class="mat-typography">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-info" style="background-image: url(../../assets/img/navbar_.png); background-repeat: repeat-y;">
-                        <h4 class="card-title">Cadastro do Projeto</h4>
-                        <p class="card-category">Cadastrar informação do projeto</p>
-                    </div>
-                    <div class="card-body">
-                        <form [formGroup]="userform" (ngSubmit)="onSubmit()">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Nome *" formControlName="name">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Data de inicío *" type="date"
-                                            formControlName="date_init">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field>
-                                        <input matInput placeholder="Data de término *" type="date"
-                                            formControlName="date_finish">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Valor do projeto *" type="number"
-                                            formControlName="value_project">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Risco do investimento *" type="number"
-                                            formControlName="risk_project">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <!-- <div class="row mb-2">
-                                <div class="col-md-12">
-                                    <button type="button" mat-raised-button color="accent" (click)="addItem()"
-                                        class="custom-icon-add-item">
-                                        <mat-icon>post_add</mat-icon>item
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row" formArrayName="items">
-                                <div class="col-md-12" *ngFor="let item of items().controls; let i=index"
-                                    [formGroupName]="i">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <mat-form-field>
-                                                <mat-label>Item</mat-label>
-                                                <mat-select #select formControlName="name"
-                                                    (click)="handleClickSelect(i)" required>
-                                                    <mat-select-filter *ngIf="select.focused" [placeholder]="'Procurar'"
-                                                        [displayMember]="'value'" [hasGroup]="true"
-                                                        [groupArrayName]="'items'" [array]="filteredListItems"
-                                                        (filteredReturn)="inputFilterResert($event, i)">
-                                                    </mat-select-filter>
-                                                    <mat-optgroup
-                                                        *ngFor="let group of (filterInputRow[i] || filteredListItems)"
-                                                        [label]="group.nome">
-                                                        <mat-option
-                                                            style="height: unset;  white-space: normal; border-bottom: 1px solid #e3e8ef;"
-                                                            *ngFor="let item of group.items" [value]="item.value">
-                                                            {{item.viewValue}}
-                                                        </mat-option>
-                                                    </mat-optgroup>
-                                                </mat-select>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <mat-form-field>
-                                                <mat-select placeholder="Unidade de Medida" formControlName="medida"
-                                                    required>
-                                                    <mat-option *ngFor="let medida of unidadeDeMedida"
-                                                        [value]="medida.value">
-                                                        {{medida.value}}
-                                                    </mat-option>
-                                                </mat-select>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Quantidade *" type="number"
-                                                    formControlName="quantidade">
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button *ngIf="i > 0" mat-icon-button color="warn" (click)="removeItem(i)"
-                                                class="custom-icon-remove">
-                                                <mat-icon>delete_outline</mat-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="row button-cadastro-flutuante">
-                                <button mat-raised-button color="primary" type="submit" class="btn pull-right">Cadastrar
-                                    <mat-icon>save</mat-icon>
-                                </button>
-                                <button type="button" *ngIf="controlDelete" (click)="deleteCadastro()" mat-raised-button
-                                    class="btn btn-danger pull-right">Delete
-                                    <mat-icon>delete_outline</mat-icon>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+  <mat-dialog-content class="mat-typography">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info"
+            style="background-image: url(../../assets/img/navbar_.png); background-repeat: repeat-y;">
+            <h4 class="card-title">Cadastro do Projeto</h4>
+            <p class="card-category">Cadastrar informação do projeto</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="userform" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Nome *" formControlName="name">
+                  </mat-form-field>
                 </div>
-            </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Data de inicío *" type="date" formControlName="date_init">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input matInput placeholder="Data de término *" type="date" formControlName="date_finish">
+                  </mat-form-field>
+                </div>
+                <div *ngIf="error.isError" class="alert alert-danger col-md-12">
+                  {{ error.errorMessage }}
+               </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Valor do projeto *" type="number" formControlName="value_project">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Risco do investimento" formControlName="risk_project" required>
+                      <mat-option *ngFor="let risk of level_risk" [value]="risk.value">
+                        {{risk.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <button type="button" mat-raised-button color="accent" (click)="addItem()"
+                    class="custom-icon-add-item">
+                    <mat-icon>person_add</mat-icon>Participantes
+                  </button>
+                </div>
+              </div>
+              <div class="row" formArrayName="participants">
+                <div class="col-md-12" *ngFor="let item of participants().controls; let i=index" [formGroupName]="i">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <input matInput placeholder="Nome *" formControlName="name">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                      <mat-form-field>
+                        <input matInput placeholder="CPF *" formControlName="cpf">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-1">
+                      <button *ngIf="i > 0" mat-icon-button color="warn" (click)="removeItem(i)"
+                        class="custom-icon-remove">
+                        <mat-icon>delete_outline</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row button-cadastro-flutuante">
+                <button mat-raised-button color="primary" type="submit" class="btn pull-right">Cadastrar
+                  <mat-icon>save</mat-icon>
+                </button>
+                <button type="button" *ngIf="controlDelete" (click)="deleteCadastro()" mat-raised-button
+                  class="btn btn-danger pull-right">Delete
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-    </mat-dialog-content>
+      </div>
+    </div>
+  </mat-dialog-content>
 </ng-template>
