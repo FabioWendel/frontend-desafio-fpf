@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ProjectService } from '../shared/services/project/project.service';
 
 @Component({
   selector: 'app-project',
@@ -29,14 +30,17 @@ export class ProjectComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   level_risk: {name:string, value: string; }[];
   isValidDate: boolean;
+  totalPages: any;
 
 
   constructor(
     public dialog: MatDialog,
     private fb: FormBuilder,
+    private projectService: ProjectService,
   ) { }
 
   ngOnInit(): void {
+    this.getProjects();
     this.getLevelRisk();
     this.userform = this.fb.group({
       'name': new FormControl('', Validators.required),
@@ -117,6 +121,18 @@ export class ProjectComponent implements OnInit {
       {name:"Alto",value: "2"},
     ];
   }
+
+  getProjects(): void {
+    this.projectService.getProjects().subscribe(data => {
+      console.log(data);
+      this.projects = new MatTableDataSource(data);
+      this.projects.sort = this.sort;
+      this.isLoading = false;
+    }, error => {
+      // this.toastr.error('Falha na comunicação com servidor!', 'Erro!');
+    });
+  }
+
 
 
   applyFilter(event: Event) {
