@@ -21,10 +21,10 @@ Feito o passo a cima vamos abrir o repositorio com o seguinte comando linux/wind
   > \$ cd frontend-desafio-fpf
 
 Caso tudo certo até aqui vamos instalar as dependencias com o seguinte comando linux/windows:
-  > \$ npm install | npm i
+  > \$ npm install
 
 E para finaliza execute  
-  > \$ ng serve | ng s 
+  > \$ ng serve
 
 Para inicializar um servidor de desenvolvimento. Navegue até 
   > \$ http://localhost:4200/
