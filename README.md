@@ -25,6 +25,8 @@ Caso tudo certo até aqui vamos instalar as dependencias com o seguinte comando 
 
 E para finaliza execute  
   > \$ ng serve | ng s 
- para inicializar um servidor de desenvolvimento. Navegue até 
+
+Para inicializar um servidor de desenvolvimento. Navegue até 
   > \$ http://localhost:4200/
- O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
+
+O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
