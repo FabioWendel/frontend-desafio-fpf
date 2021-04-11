@@ -2,7 +2,7 @@
 
 Angular 11.0
 
-## Rodar aplicação
+## Como executar o projeto
 
 Para ter acesso ao projeto  basta fazer um git clone, como fazer ? 
 
