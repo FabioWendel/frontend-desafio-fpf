@@ -4,10 +4,11 @@ Angular 11.0
 
 ## Rodar aplicação
 
-Para ter acesso ao projeto  pasta fazer um git clone, como fazer ? 
+Para ter acesso ao projeto  basta fazer um git clone, como fazer ? 
 
 Caso não tenha git abra o terminal no linux e cole:
-sudo apt-get install git-all
+  > \$ sudo apt-get install git-all
+
 Apos instalar abra o terminal no linux e cole o seguinte comando:
   > \$ git clone https://github.com/FabioWendel/frontend-desafio-fpf.git
  
